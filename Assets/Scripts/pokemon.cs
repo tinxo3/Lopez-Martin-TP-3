@@ -21,7 +21,9 @@ public class pokemon : MonoBehaviour
     States currentState;
     [SerializeField]
     bool isPlayer = false;
-
+    public GameObject projectile;
+    public GameObject projectileClone;
+    public GameObject player;
     enum States
     {
         IDLE,
@@ -39,10 +41,11 @@ public class pokemon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Space))
         {
             currentState = States.ATTACK;
         }
+        fireProjectile();
     }
 
     private void FixedUpdate()
@@ -140,6 +143,14 @@ public class pokemon : MonoBehaviour
             currentState = States.IDLE;
         }
         rd.velocity = velocity * Time.deltaTime;
+    }
+
+    void fireProjectile()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && projectileClone == null)
+        {
+            projectileClone = Instantiate(projectile, new Vector3(player.transform.position.x, player.transform.position.y + 0.10f, 751), player.transform.rotation) as GameObject;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
