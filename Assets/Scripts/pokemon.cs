@@ -7,14 +7,6 @@ public class pokemon : MonoBehaviour
     [SerializeField]           
     private string pokemonName;
     [SerializeField]
-    private int experience;
-    [SerializeField]
-    private int level;
-    [SerializeField]
-    private int damage;
-    [SerializeField]
-    private int health;
-    [SerializeField]
     private float movementSpeed;
     private Rigidbody2D rd;
     [SerializeField]
@@ -63,62 +55,6 @@ public class pokemon : MonoBehaviour
     public void SetPokemonName(string newPokemonName)
     {
         pokemonName = newPokemonName;
-    }
-
-    public int GetExperience()
-    {
-        return experience;
-    }
-
-    public void SetPokemonExperience(int newExperience)
-    {
-        experience = newExperience;
-    }
-
-    public int GetLevel()
-    {
-        return level;
-    }    
-
-    public void SetLevel(int newLevel)
-    {
-        level = newLevel;
-    }
-
-    public int GetDamage()
-    {
-        return damage;
-    }
-
-    public void SetDamage(int newDamage)
-    {
-        damage = newDamage;
-    }
-
-    public int GetHealth()
-    {
-        return health;
-    }
-
-    public void SetHealth(int newHealth)
-    {
-        health = newHealth;
-    }
-
-    public void Attack(pokemon otherPokemon)
-    {
-        otherPokemon.TakeDamage(damage);
-    }   
-
-    public void TakeDamage(int pokemonDamage)
-    {
-        health -= pokemonDamage;
-    }
-
-    public void LevelUp()
-    {
-        experience = 0;
-        level++;
     }
 
     public void Move()

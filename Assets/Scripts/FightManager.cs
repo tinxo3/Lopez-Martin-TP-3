@@ -10,9 +10,9 @@ public class FightManager : MonoBehaviour
     private pokemon Squirtle;
     void Start()
     {
-        Debug.Log("Vida squirtle antes:" + Squirtle.GetHealth());
-        Pikachu.Attack(Squirtle);
-        Debug.Log("Vida squirtle despues:" + Squirtle.GetHealth());
+       // Debug.Log("Vida squirtle antes:" + Squirtle.GetHealth());
+        //Pikachu.Attack(Squirtle);
+        //Debug.Log("Vida squirtle despues:" + Squirtle.GetHealth());
     }
 
     // Update is called once per frame

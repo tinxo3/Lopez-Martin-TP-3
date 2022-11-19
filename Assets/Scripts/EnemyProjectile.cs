@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
-    public GameObject projectile;
+    public GameObject enemyProjectile;
     void Start()
     {
         
@@ -13,20 +13,18 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0, 200 * Time.deltaTime, 0));
+        transform.Translate(new Vector3(0, -200 * Time.deltaTime, 0));
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);
-            Destroy(projectile);
+            Destroy(enemyProjectile);
         }
-        if(collision.gameObject.tag == "Respawn")
+        if (collision.gameObject.tag == "Respawn")
         {
-            Destroy(projectile);
-        }    
+            Destroy(enemyProjectile);
+        }
     }
-
-
 }

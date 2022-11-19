@@ -57,9 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\FightManager.cs" />
-    <Compile Include="Assets\Scripts\pokemon.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\pokemon.cs" />
+    <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
