@@ -20,7 +20,8 @@ public class pokemon : MonoBehaviour
     {
         IDLE,
         MOVING,
-        ATTACK
+        ATTACK,
+        HIT
     }    
 
     // Start is called before the first frame update
@@ -37,14 +38,21 @@ public class pokemon : MonoBehaviour
         {
             currentState = States.ATTACK;
         }
-        fireProjectile();
+        //fireProjectile();
     }
 
     private void FixedUpdate()
     {
-        if (isPlayer)
+        //if (isPlayer)
+        if (GameManager.lives > 0)
         {
             Move();
+            fireProjectile();
+        }
+        if (GameManager.playGame == false)
+        {
+            movementSpeed = 0;
+            //fireProjectile();
         }
     }
     public string GetPokemonName()
@@ -85,27 +93,7 @@ public class pokemon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && projectileClone == null)
         {
-            projectileClone = Instantiate(projectile, new Vector3(player.transform.position.x, player.transform.position.y + 0.10f, 751), player.transform.rotation) as GameObject;
+            projectileClone = Instantiate(projectile, new Vector3(player.transform.position.x, player.transform.position.y + 20f, 751), player.transform.rotation) as GameObject;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("ontriggerenter2d");
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("ontriggerexit2D");
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("oncollisionenter2d");
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        Debug.Log("oncollisionexit2d");
     }
 }

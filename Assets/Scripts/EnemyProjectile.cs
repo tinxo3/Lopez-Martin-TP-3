@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     public GameObject enemyProjectile;
+    Vector3 respawn = new Vector3(23, -171, 751);
     void Start()
     {
         
@@ -19,8 +20,10 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.transform.position = respawn;
             Destroy(enemyProjectile);
+            GameManager.playGame = false;
+            GameManager.lives--;
         }
         if (collision.gameObject.tag == "Respawn")
         {

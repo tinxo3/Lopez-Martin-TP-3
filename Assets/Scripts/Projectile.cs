@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameObject projectile;
+
     void Start()
     {
         
@@ -21,10 +22,24 @@ public class Projectile : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(projectile);
+            GameManager.playGame = true;
+           // numOfKills++;
+            
         }
         if(collision.gameObject.tag == "Respawn")
         {
             Destroy(projectile);
+        }
+        if(GameManager.numOfKills >= 3)
+        {
+            GameManager.Win = true;
+            GameManager.playGame = false;
+            Debug.Log("Win");
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameManager.numOfKills++;
+            Debug.Log("Kill");
         }    
     }
 

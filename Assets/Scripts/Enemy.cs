@@ -14,34 +14,37 @@ public class Enemy : MonoBehaviour
     public GameObject enemyProjectileClone;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > timeToMove && numOfMovements < 8)
+        if (GameManager.playGame)
         {
-            transform.Translate(new Vector3(speed, 0, 0));
-            timer = 0;
-            numOfMovements++;
-        }
-        if(numOfMovements == 8)
-        {
-            transform.Translate(new Vector3(0, -20f, 0));
-            numOfMovements = -1;
-            speed = -speed;
+            if (timer > timeToMove && numOfMovements < 8)
+            {
+                transform.Translate(new Vector3(speed, 0, 0));
+                timer = 0;
+                numOfMovements++;
+            }
+            if (numOfMovements == 8)
+            {
+                transform.Translate(new Vector3(0, -20f, 0));
+                numOfMovements = -1;
+                speed = -speed;
+            }
+
+            fireEnemyProjectile();
         }
 
-        fireEnemyProjectile();
-    }
-
-    void fireEnemyProjectile()
-    {
-        if (Random.Range(0f, 750f) < 1)
+        void fireEnemyProjectile()
         {
-            enemyProjectileClone = Instantiate(enemyProjectile, new Vector3(enemy.transform.position.x, enemy.transform.position.y + -0.10f, 751), enemy.transform.rotation) as GameObject;
+            if (Random.Range(0f, 750f) < 1)
+            {
+                enemyProjectileClone = Instantiate(enemyProjectile, new Vector3(enemy.transform.position.x, enemy.transform.position.y + -0.10f, 751), enemy.transform.rotation) as GameObject;
+            }
         }
     }
 }
