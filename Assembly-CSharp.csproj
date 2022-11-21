@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\pokemon.cs" />
     <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
+    <Compile Include="Assets\Scripts\Bottom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

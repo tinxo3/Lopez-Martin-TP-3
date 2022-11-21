@@ -147,3 +147,5 @@ MonoBehaviour:
   enemy: {fileID: 2885105020655879971}
   enemyProjectile: {fileID: 1375817120729825681, guid: d261a8d461d2bd1459c4deffdab35102, type: 3}
   enemyProjectileClone: {fileID: 0}
+  endScreen: {fileID: 0}
+  Restart: {fileID: 0}

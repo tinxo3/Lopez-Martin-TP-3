@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -12,9 +13,11 @@ public class Enemy : MonoBehaviour
     public GameObject enemy;
     public GameObject enemyProjectile;
     public GameObject enemyProjectileClone;
+
+
     void Start()
     {
-
+        GameManager.playGame = false;
     }
 
     // Update is called once per frame
@@ -46,5 +49,7 @@ public class Enemy : MonoBehaviour
                 enemyProjectileClone = Instantiate(enemyProjectile, new Vector3(enemy.transform.position.x, enemy.transform.position.y + -0.10f, 751), enemy.transform.rotation) as GameObject;
             }
         }
-    }
+    }     
 }
+
+

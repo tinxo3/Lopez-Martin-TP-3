@@ -46,6 +46,8 @@ public class pokemon : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             GameManager.lives = 3;
             GameManager.numOfKills = 0;
+            GameManager.Win = false;
+            GameManager.playGame = false;
             
         }    
         
