@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class pokemon : MonoBehaviour
 {
@@ -22,8 +23,9 @@ public class pokemon : MonoBehaviour
         MOVING,
         ATTACK,
         HIT
-    }    
+    }
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,15 @@ public class pokemon : MonoBehaviour
         {
             currentState = States.ATTACK;
         }
-        //fireProjectile();
+        bool restart = (Input.GetKey(KeyCode.R));
+        if (restart)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.lives = 3;
+            GameManager.numOfKills = 0;
+            
+        }    
+        
     }
 
     private void FixedUpdate()
@@ -49,7 +59,7 @@ public class pokemon : MonoBehaviour
             Move();
             fireProjectile();
         }
-        if (GameManager.playGame == false)
+        if (GameManager.Win == true)
         {
             movementSpeed = 0;
             //fireProjectile();
@@ -65,18 +75,20 @@ public class pokemon : MonoBehaviour
         pokemonName = newPokemonName;
     }
 
+    
     public void Move()
     {
         Vector2 velocity = new Vector2();
         if (Input.GetKey(KeyCode.A))
         {
             velocity.x = -movementSpeed;
+            GetComponent<SpriteRenderer>().flipX = false;
           
         }
         if (Input.GetKey(KeyCode.D))
         {
             velocity.x = movementSpeed;
-      
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         if (velocity.magnitude != 0)
         {

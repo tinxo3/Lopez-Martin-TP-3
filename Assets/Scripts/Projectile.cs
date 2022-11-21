@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(projectile);
         }
-        if(GameManager.numOfKills >= 3)
+        if(GameManager.numOfKills >= 24)
         {
             GameManager.Win = true;
             GameManager.playGame = false;

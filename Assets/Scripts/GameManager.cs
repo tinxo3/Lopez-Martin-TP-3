@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public Text livesText;
     public Text endScreen;
+    public Text Restart;
     
     void Start()
     {
@@ -26,10 +27,12 @@ public class GameManager : MonoBehaviour
         if (lives == 0)
         {
             endScreen.text = "YOU LOSE!";
+            Restart.text = "Press R to restart";
         }
-        if (numOfKills >= 3)
+        if (numOfKills >= 24)
         {
             endScreen.text = "YOU WIN!";
+            Restart.text = "Press R to restart";
         }    
         
     }
